@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nam Jap Counter</title>
+  <style>
+      body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #2528cb, #fc9ff0);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    
+    #background-names {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      color: darkblue;
+      font-size: 22px;
+      font-weight: bold;
+      opacity: 0.15;
+      line-height: 1.5;
+      text-align: center;
+      z-index: 0;
+      white-space: pre-wrap;
+      overflow: hidden;
+    }
+
+    button {
+      width: 300px;
+      height: 300px;
+      margin: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 24px;
+      font-weight: bold;
+      position: relative;
+      background: yellow;
+      color: black;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      z-index: 1;
+    }
+
+    
+    button::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      border-radius: 50%;
+      padding: 5px;
+      background: conic-gradient(
+        from var(--rotation, 0deg),
+        rgb(229, 60, 60),
+        orange,
+        yellow,
+        gold,
+        red
+      
+    );
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 6px), black);
+      mask: radial-gradient(farthest-side, transparent calc(100% - 6px), black);
+      animation: flame 2s linear infinite;
+      transition: transform 0.5s ease, background 0.5s ease;
+  };
+
+    @keyframes flame {
+      0% { filter: hue-rotate(0deg) brightness(1.2); }
+      50% { filter: hue-rotate(45deg) brightness(1.5); }
+      100% { filter: hue-rotate(0deg) brightness(1.2); }
+    }
+
+    button:hover {
+      transform: scale(1.05) rotate(2deg);
+    }
+
+    #count {
+      font-size: 40px;
+      margin-top: 20px;
+      color: #03b4218e;
+    }
+
+    #name {
+      font-size: 32px;
+      color: #2206d6;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    
+    #नारायण {
+      width: 150px;
+      height: 40px;
+      background-color: aqua;
+      border: 5px solid chartreuse;
+      margin-top: 100px;
+      margin-left: 20px;
+      border-radius: 15px;
+      padding-left: 30px;
+      font-size: 28px;
+      font-weight: bold;
+      color: darkblue;
+      /* z-index: 2; */
+     }
+      #ak {
+        width: 170px;
+        height: 120px;
+        background-color: chartreuse;
+        border-radius: 15px;
+        padding-left: 35px;
+        padding-top: 12px;
+        color: blue;
+        border: 3px solid blue;
+        margin-left: 20px;
+       
+        
+      }
+      #kk{
+        width: 250px;
+        height: 20px;
+        background-color: darkslategray;
+        text-align: center;
+        margin-top: 100px;
+        margin-left: 20px;
+
+      }
+      #a1{
+        width: 100px;
+        height: 130px;
+        background-color: yellow;
+        text-align: center;
+        margin-top: -250px;
+        margin-left: -500px;
+        padding-top: 20px;
+        color: blue;
+         border: 3px solid aqua;
+        border-radius: 10px;
+
+      }
+      #rounds{
+      width: 150px;
+      height: 40px;
+      background-color: aqua;
+      border: 5px solid chartreuse;
+      margin-top: 10px;
+      margin-left: 20px;
+      border-radius: 15px;
+      padding-left: 30px;
+      font-size: 28px;
+      font-weight: bold;
+      color: darkblue;
+      }
+
+
+      #a2{
+        width: 100px;
+        height: 130px;
+        background-color: yellow;
+        text-align: center;
+        margin-top: -150px;
+        margin-left: 500px;
+        padding-top: 20px;
+        color: blue;
+        border: 3px solid aqua;
+        border-radius: 10px;
+
+        
+
+      }  
+      
+  
+
+   
+
+    
+  </style>
+</head>
+<body>
+  
+  <!-- Background names div -->
+  <div id="background-names"></div>
+
+  <div id="ak">. हरि मैं जैसो तैसो तेरो <br><br>
+    . हरि मैं जैसो तैसो तेरो <br><br>. हरि मैं जैसो तैसो तेरो</div>
+
+  <button class="increment" onclick="increment()">
+    <div id="count">0</div>
+    <div id="name"></div>
+  </button>
+  <div id ="a1">. हरि शरणम् <br> <br>. हरि शरणम् <br><br>. हरि शरणम्</div>
+  <div id="a2">. हरि शरणम् <br> <br>. हरि शरणम् <br><br>. हरि शरणम्</div>
+
+  <!-- Total NamJap div <-->
+  <div id="नारायण">नारायण : 0</div>
+
+  <!-- Rounds div -->
+<div id="rounds">नारायण : 0</div>
+
+
+
+  <div id="kk">Developed by @ Amit Kumar!!</div> 
+
+  <!-- 🔊 Audio file -->
+   <audio id="sound" src="audio.mp3"></audio> 
+
+  
+  <script>
+    let count = 0;
+    let नारायण = 0 ;
+    let rounds = 0;
+    const totalSteps = 108;
+
+
+    // Fill background with repeated names (large number to cover screen)
+    const namesDiv = document.getElementById("background-names");
+    namesDiv.innerText = Array(1000).fill("नारायण").join("  "); 
+
+    function increment() {
+      count++;
+      नारायण++; // total jap count increases every click
+
+      if (count > totalSteps) {
+        count = 1;// reset after 108
+        rounds++; 
+      }
+
+      document.getElementById("count").innerText = count;
+      document.getElementById("name").innerText = "नारायण";
+
+      // Update total NamJap div
+      document.getElementById("नारायण").innerText = "नारायण : " + नारायण;
+
+      // 🔄 Calculate rotation angle (360° / 108 steps)
+      const angle = (count % totalSteps) * (360 / totalSteps);
+      document.querySelector("button").style.setProperty("--rotation", angle + "deg");
+
+      // 🔊 Play sound
+      const sound = document.getElementById("sound");
+      if (sound) {
+        sound.currentTime = 0;
+        sound.play();
+      }
+
+      // 📳 Vibration effect (mobile supported)
+      if (navigator.vibrate) {
+        navigator.vibrate(100); // vibrate for 100ms
+      }
+    }
+  </script>
+</body>
+</html>
