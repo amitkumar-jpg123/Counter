@@ -4,187 +4,155 @@
   <meta charset="UTF-8">
   <title>Nam Jap Counter</title>
   <style>
-      body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #2528cb, #fc9ff0);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      position: relative;
-      overflow: hidden;
-    }
+     body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #2528cb, #fc9ff0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* ✅ min-height instead of fixed */
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
 
-    
-    #background-names {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      color: darkblue;
-      font-size: 22px;
-      font-weight: bold;
-      opacity: 0.15;
-      line-height: 1.5;
-      text-align: center;
-      z-index: 0;
-      white-space: pre-wrap;
-      overflow: hidden;
-    }
+#background-names {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: darkblue;
+  font-size: 2vw; /* ✅ responsive font size */
+  font-weight: bold;
+  opacity: 0.15;
+  line-height: 1.5;
+  text-align: center;
+  z-index: 0;
+  white-space: pre-wrap;
+  overflow: hidden;
+}
 
-    button {
-      width: 300px;
-      height: 300px;
-      margin: 10px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 24px;
-      font-weight: bold;
-      position: relative;
-      background: yellow;
-      color: black;
-      overflow: hidden;
-      transition: transform 0.3s ease;
-      z-index: 1;
-    }
+button {
+  width: 25vw; /* ✅ responsive size */
+  max-width: 300px;
+  height: 25vw;
+  max-height: 300px;
+  margin: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 2vw;
+  font-weight: bold;
+  position: relative;
+  background: yellow;
+  color: black;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
 
-    
-    button::before {
-      content: "";
-      position: absolute;
-      top: -10px;
-      left: -10px;
-      right: -10px;
-      bottom: -10px;
-      border-radius: 50%;
-      padding: 5px;
-      background: conic-gradient(
-        from var(--rotation, 0deg),
-        rgb(229, 60, 60),
-        orange,
-        yellow,
-        gold,
-        red
-      
-    );
-      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 6px), black);
-      mask: radial-gradient(farthest-side, transparent calc(100% - 6px), black);
-      animation: flame 2s linear infinite;
-      transition: transform 0.5s ease, background 0.5s ease;
-  };
+button::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 50%;
+  padding: 5px;
+  background: conic-gradient(
+    from var(--rotation, 0deg),
+    rgb(229, 60, 60),
+    orange,
+    yellow,
+    gold,
+    red
+  );
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 6px), black);
+  mask: radial-gradient(farthest-side, transparent calc(100% - 6px), black);
+  animation: flame 2s linear infinite;
+  transition: transform 0.5s ease, background 0.5s ease;
+}
 
-    @keyframes flame {
-      0% { filter: hue-rotate(0deg) brightness(1.2); }
-      50% { filter: hue-rotate(45deg) brightness(1.5); }
-      100% { filter: hue-rotate(0deg) brightness(1.2); }
-    }
+@keyframes flame {
+  0% { filter: hue-rotate(0deg) brightness(1.2); }
+  50% { filter: hue-rotate(45deg) brightness(1.5); }
+  100% { filter: hue-rotate(0deg) brightness(1.2); }
+}
 
-    button:hover {
-      transform: scale(1.05) rotate(2deg);
-    }
+button:hover {
+  transform: scale(1.05) rotate(2deg);
+}
 
-    #count {
-      font-size: 40px;
-      margin-top: 20px;
-      color: #03b4218e;
-    }
+#count {
+  font-size: 4vw;
+  margin-top: 20px;
+  color: #03b4218e;
+}
 
-    #name {
-      font-size: 32px;
-      color: #2206d6;
-      font-weight: bold;
-      margin-top: 10px;
-    }
+#name {
+  font-size: 3vw;
+  color: #2206d6;
+  font-weight: bold;
+  margin-top: 10px;
+}
 
-    
-    #नारायण {
-      width: 150px;
-      height: 40px;
-      background-color: aqua;
-      border: 5px solid chartreuse;
-      margin-top: 100px;
-      margin-left: 20px;
-      border-radius: 15px;
-      padding-left: 30px;
-      font-size: 28px;
-      font-weight: bold;
-      color: darkblue;
-      /* z-index: 2; */
-     }
-      #ak {
-        width: 170px;
-        height: 120px;
-        background-color: chartreuse;
-        border-radius: 15px;
-        padding-left: 35px;
-        padding-top: 12px;
-        color: blue;
-        border: 3px solid blue;
-        margin-left: 20px;
-       
-        
-      }
-      #kk{
-        width: 250px;
-        height: 20px;
-        background-color: darkslategray;
-        text-align: center;
-        margin-top: 100px;
-        margin-left: 20px;
+#नारायण, #rounds {
+  width: auto;
+  padding: 10px 20px;
+  background-color: aqua;
+  border: 5px solid chartreuse;
+  margin: 20px auto;
+  border-radius: 15px;
+  font-size: 2.5vw;
+  font-weight: bold;
+  color: darkblue;
+  text-align: center;
+}
 
-      }
-      #a1{
-        width: 100px;
-        height: 130px;
-        background-color: yellow;
-        text-align: center;
-        margin-top: -250px;
-        margin-left: -500px;
-        padding-top: 20px;
-        color: blue;
-         border: 3px solid aqua;
-        border-radius: 10px;
+#ak, #kk, #a1, #a2 {
+  background-color: yellow;
+  border: 3px solid aqua;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  color: blue;
+  flex: 1;
+}
 
-      }
-      #rounds{
-      width: 150px;
-      height: 40px;
-      background-color: aqua;
-      border: 5px solid chartreuse;
-      margin-top: 10px;
-      margin-left: 20px;
-      border-radius: 15px;
-      padding-left: 30px;
-      font-size: 28px;
-      font-weight: bold;
-      color: darkblue;
-      }
+/* ✅ Responsive Layout */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
 
+/* 📱 Mobile screens */
+@media (max-width: 768px) {
+  button {
+    width: 50vw;
+    height: 50vw;
+    font-size: 4vw;
+  }
 
-      #a2{
-        width: 100px;
-        height: 130px;
-        background-color: yellow;
-        text-align: center;
-        margin-top: -150px;
-        margin-left: 500px;
-        padding-top: 20px;
-        color: blue;
-        border: 3px solid aqua;
-        border-radius: 10px;
+  #count, #name {
+    font-size: 5vw;
+  }
 
-        
+  #नारायण, #rounds {
+    font-size: 4vw;
+    width: 80%;
+  }
 
-      }  
-      
-  
+  #ak, #kk, #a1, #a2 {
+    width: 80%;
+    margin: 10px auto;
+  }
+}
 
-   
-
-    
   </style>
 </head>
 <body>
